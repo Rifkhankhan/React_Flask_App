@@ -6,16 +6,23 @@ import os
 
 app = Flask(__name__)
 
-# We can comment this CORS config for the production because we are running the frontend and backend on the same server
-CORS(app) 
+# In production, you don't typically need CORS if frontend and backend are served from the same domain.
+# Comment out or remove CORS if it's not needed.
+# from flask_cors import CORS
+# CORS(app)
+
+# Configure the database. Ensure you have a production-ready database if not using SQLite.
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///friends.db')
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///friends.db" 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-frontend_folder = os.path.join(os.getcwd(),"..","frontend")
-dist_folder = os.path.join(frontend_folder,"dist")
+# Define the paths for your frontend static files.
+frontend_folder = os.path.join(os.getcwd(), "..", "frontend")
+dist_folder = os.path.join(frontend_folder, "dist")
 
 # Server static files from the "dist" folder under the "frontend" directory
 @app.route("/",defaults={"filename":""})
@@ -25,11 +32,14 @@ def index(filename):
     filename = "index.html"
   return send_from_directory(dist_folder,filename)
 
-# api routes
+
+# Import API routes
 import routes
 
+# Create database tables if they don't exist yet.
 with app.app_context():
-  db.create_all()
+    db.create_all()
 
+# Only run the app if this file is executed directly.
 if __name__ == "__main__":
-  app.run(debug=True)
+    app.run(debug=False)  # Disable debug mode in production
