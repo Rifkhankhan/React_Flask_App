@@ -1,0 +1,216 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "send_from_directory",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemy",
+        "importPath": "flask_sqlalchemy",
+        "description": "flask_sqlalchemy",
+        "isExtraImport": true,
+        "detail": "flask_sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "routes",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "routes",
+        "description": "routes",
+        "detail": "routes",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Friend",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "def index(filename):\n  if not filename:\n    filename = \"index.html\"\n  return send_from_directory(dist_folder,filename)\n# api routes\nimport routes\nwith app.app_context():\n  db.create_all()\nif __name__ == \"__main__\":\n  app.run(debug=True)",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "app = Flask(__name__)\n# We can comment this CORS config for the production because we are running the frontend and backend on the same server\n# CORS(app) \napp.config['SQLALCHEMY_DATABASE_URI'] = \"sqlite:///friends.db\"\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\ndb = SQLAlchemy(app)\nfrontend_folder = os.path.join(os.getcwd(),\"..\",\"frontend\")\ndist_folder = os.path.join(frontend_folder,\"dist\")\n# Server static files from the \"dist\" folder under the \"frontend\" directory\n@app.route(\"/\",defaults={\"filename\":\"\"})",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['SQLALCHEMY_DATABASE_URI']",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "app.config['SQLALCHEMY_DATABASE_URI'] = \"sqlite:///friends.db\"\napp.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\ndb = SQLAlchemy(app)\nfrontend_folder = os.path.join(os.getcwd(),\"..\",\"frontend\")\ndist_folder = os.path.join(frontend_folder,\"dist\")\n# Server static files from the \"dist\" folder under the \"frontend\" directory\n@app.route(\"/\",defaults={\"filename\":\"\"})\n@app.route(\"/<path:filename>\")\ndef index(filename):\n  if not filename:",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"]",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\ndb = SQLAlchemy(app)\nfrontend_folder = os.path.join(os.getcwd(),\"..\",\"frontend\")\ndist_folder = os.path.join(frontend_folder,\"dist\")\n# Server static files from the \"dist\" folder under the \"frontend\" directory\n@app.route(\"/\",defaults={\"filename\":\"\"})\n@app.route(\"/<path:filename>\")\ndef index(filename):\n  if not filename:\n    filename = \"index.html\"",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "db = SQLAlchemy(app)\nfrontend_folder = os.path.join(os.getcwd(),\"..\",\"frontend\")\ndist_folder = os.path.join(frontend_folder,\"dist\")\n# Server static files from the \"dist\" folder under the \"frontend\" directory\n@app.route(\"/\",defaults={\"filename\":\"\"})\n@app.route(\"/<path:filename>\")\ndef index(filename):\n  if not filename:\n    filename = \"index.html\"\n  return send_from_directory(dist_folder,filename)",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "frontend_folder",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "frontend_folder = os.path.join(os.getcwd(),\"..\",\"frontend\")\ndist_folder = os.path.join(frontend_folder,\"dist\")\n# Server static files from the \"dist\" folder under the \"frontend\" directory\n@app.route(\"/\",defaults={\"filename\":\"\"})\n@app.route(\"/<path:filename>\")\ndef index(filename):\n  if not filename:\n    filename = \"index.html\"\n  return send_from_directory(dist_folder,filename)\n# api routes",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "dist_folder",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "dist_folder = os.path.join(frontend_folder,\"dist\")\n# Server static files from the \"dist\" folder under the \"frontend\" directory\n@app.route(\"/\",defaults={\"filename\":\"\"})\n@app.route(\"/<path:filename>\")\ndef index(filename):\n  if not filename:\n    filename = \"index.html\"\n  return send_from_directory(dist_folder,filename)\n# api routes\nimport routes",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "Friend",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class Friend(db.Model):\n  id = db.Column(db.Integer, primary_key=True)\n  name = db.Column(db.String(100), nullable=False)\n  role = db.Column(db.String(50), nullable=False)\n  description = db.Column(db.Text, nullable=False)\n  gender = db.Column(db.String(10), nullable=False)\n  img_url = db.Column(db.String(200), nullable=True)\n  def to_json(self):\n    return {\n      \"id\":self.id,",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "get_friends",
+        "kind": 2,
+        "importPath": "backend.routes",
+        "description": "backend.routes",
+        "peekOfCode": "def get_friends():\n  friends = Friend.query.all() \n  result = [friend.to_json() for friend in friends]\n  return jsonify(result)\n# Create a friend\n@app.route(\"/api/friends\",methods=[\"POST\"])\ndef create_friend():\n  try:\n    data = request.json\n    # Validations",
+        "detail": "backend.routes",
+        "documentation": {}
+    },
+    {
+        "label": "create_friend",
+        "kind": 2,
+        "importPath": "backend.routes",
+        "description": "backend.routes",
+        "peekOfCode": "def create_friend():\n  try:\n    data = request.json\n    # Validations\n    required_fields = [\"name\",\"role\",\"description\",\"gender\"]\n    for field in required_fields:\n      if field not in data or not data.get(field):\n        return jsonify({\"error\":f'Missing required field: {field}'}), 400\n    name = data.get(\"name\")\n    role = data.get(\"role\")",
+        "detail": "backend.routes",
+        "documentation": {}
+    },
+    {
+        "label": "delete_friend",
+        "kind": 2,
+        "importPath": "backend.routes",
+        "description": "backend.routes",
+        "peekOfCode": "def delete_friend(id):\n  try:\n    friend = Friend.query.get(id)\n    if friend is None:\n      return jsonify({\"error\":\"Friend not found\"}), 404\n    db.session.delete(friend)\n    db.session.commit()\n    return jsonify({\"msg\":\"Friend deleted\"}), 200\n  except Exception as e:\n    db.session.rollback()",
+        "detail": "backend.routes",
+        "documentation": {}
+    },
+    {
+        "label": "update_friend",
+        "kind": 2,
+        "importPath": "backend.routes",
+        "description": "backend.routes",
+        "peekOfCode": "def update_friend(id):\n  try:\n    friend = Friend.query.get(id)\n    if friend is None:\n      return jsonify({\"error\":\"Friend not found\"}), 404\n    data = request.json\n    friend.name = data.get(\"name\",friend.name)\n    friend.role = data.get(\"role\",friend.role)\n    friend.description = data.get(\"description\",friend.description)\n    friend.gender = data.get(\"gender\",friend.gender)",
+        "detail": "backend.routes",
+        "documentation": {}
+    }
+]
